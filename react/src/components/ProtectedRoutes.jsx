@@ -11,7 +11,7 @@ export default function ProtectedRoute({ children, role }){
     }
 
     //verifying the role of the logged in user
-    if(loginstate.user.role !== role){
+    if(Number(loginstate.user.role) !== Number(role)){
         return <Navigate to="/unauthorised" />
     }
 

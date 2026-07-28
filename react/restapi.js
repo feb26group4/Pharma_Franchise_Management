@@ -13,7 +13,7 @@ app.use(exp.json())      //req.body created
 app.use(cors())
 
 //mysql
-let con = mysql.createConnection({₹
+let con = mysql.createConnection({
     host:"localhost",
     user: "root",
     password: "root",

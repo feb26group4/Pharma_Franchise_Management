@@ -5,7 +5,7 @@ export default function HomeComp(){
         <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
          <div className="container-fluid">
-          <span className="navbar-brand">My App</span>
+          <span className="navbar-brand">MediSync</span>
 
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -25,6 +25,8 @@ export default function HomeComp(){
 
         <div className="container mt-4">
           <h1>Welcome to Home Page</h1>
+          <p>About us - Info about franchise </p>
+          <p>Want to join us? - register link </p>
           <Outlet />
         </div>
         </>
