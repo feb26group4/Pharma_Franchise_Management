@@ -13,6 +13,18 @@ export default function AdminDashboard(){
             <li className="nav-item">
             <NavLink to="reports">Reports</NavLink>
             </li>
+            <li className="nav-item">
+            <NavLink to="role3">role3</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink to="role4">role4</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink to="role5">role5</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink to="role6">role6</NavLink>
+            </li>
             <li className="nav-item">   
             <NavLink to="logout">Logout</NavLink>
             </li>
