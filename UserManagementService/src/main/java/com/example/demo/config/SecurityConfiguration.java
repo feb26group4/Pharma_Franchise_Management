@@ -1,7 +1,5 @@
 package com.example.demo.config;
 
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import java.util.List;
+
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -30,64 +31,68 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//            .csrf(csrf -> csrf.disable())
+//            .cors(Customizer.withDefaults())
+//            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//            .authorizeHttpRequests(auth -> auth
+//                //.requestMatchers("/users/register/**", "/users/login/**", "/guest/**").permitAll()
+//            	.requestMatchers("/users/**").permitAll()	
+//                //.requestMatchers("/users/**").hasRole("user")
+//                //.requestMatchers("/admin/**").hasRole("admin")
+//                .anyRequest().authenticated()
+//            );
+////            .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+////            .httpBasic(Customizer.withDefaults());
+//
+//        return http.build();
+//    }
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
-            .cors(Customizer.withDefaults())   // Enable CORS
             .csrf(csrf -> csrf.disable())
-
+            .cors(Customizer.withDefaults())
             .sessionManagement(session ->
-                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
-            .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/users/**").permitAll()
-                    //.requestMatchers("/admin/**").hasRole("ADMIN")
-                    //.requestMatchers("/warehouse/**").hasRole("WAREHOUSE")
-                    .anyRequest().authenticated()
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
-
-            .addFilterBefore(jwtAuthenticationFilter(),
-                    UsernamePasswordAuthenticationFilter.class)
-
-            .httpBasic(Customizer.withDefaults());
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/users/**").permitAll()
+                .anyRequest().authenticated()
+            );
 
         return http.build();
     }
 
     @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configure) throws Exception {
+        return configure.getAuthenticationManager();
+    }
+    
+    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of(
-                "http://localhost:5173"
-        ));
+        configuration.setAllowedOrigins(
+            List.of("http://localhost:5173")
+        );
 
-        configuration.setAllowedMethods(List.of(
-                "GET",
-                "POST",
-                "PUT",
-                "DELETE",
-                "OPTIONS"
-        ));
+        configuration.setAllowedMethods(
+            List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        );
 
-        configuration.setAllowedHeaders(List.of("*"));
-
-        configuration.setAllowCredentials(true);
+        configuration.setAllowedHeaders(
+            List.of("*")
+        );
 
         UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
+            new UrlBasedCorsConfigurationSource();
 
         source.registerCorsConfiguration("/**", configuration);
 
         return source;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configure)
-            throws Exception {
-
-        return configure.getAuthenticationManager();
     }
 }
