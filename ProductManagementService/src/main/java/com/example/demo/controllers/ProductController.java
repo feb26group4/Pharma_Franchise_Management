@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.ProductDTO;
 import com.example.demo.entities.Product;
 import com.example.demo.services.ProductService;
 
@@ -31,9 +32,10 @@ public class ProductController {
 //    }
 	
 	@PostMapping
-	public Product addProduct(@RequestBody Product product) {
-	    return prodserv.addProduct(product);
+	public boolean addProduct(@RequestBody ProductDTO productdto) {
+	    return prodserv.addProduct(productdto);
 	}
+	
 	
 	
 	
