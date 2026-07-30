@@ -16,17 +16,15 @@ import com.example.demo.service.OrdersService;
 @RequestMapping("/api/orders")
 public class OrdersController {
 	
-	
 	 @Autowired
 	    private OrdersService ordersService;
-	 
-	 @GetMapping
+
+	    @GetMapping
 	    public List<Orders> getAllOrders() {
 	        return ordersService.getAllOrders();
 	    }
-	 
-	 
-	 @PostMapping
+	    
+	    @PostMapping
 	    public Orders createOrder(@RequestBody Orders order) {
 	        return ordersService.saveOrder(order);
 	    }

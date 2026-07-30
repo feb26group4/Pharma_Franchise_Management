@@ -15,12 +15,12 @@ public class OrdersService {
 	 @Autowired
 	    private OrdersRepository ordersRepository;
 
-	 
-	 public List<Orders> getAllOrders() {
+	    public List<Orders> getAllOrders() {
 	        return ordersRepository.findAll();
 	    }
-	 
-	 public Orders saveOrder(Orders order) {
-		    return ordersRepository.save(order);
-		}
+	    
+	    public Orders saveOrder(Orders order) {
+	        return ordersRepository.save(order);
+	    }
+
 }

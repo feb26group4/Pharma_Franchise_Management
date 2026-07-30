@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.ProductDTO;
-import com.example.demo.dto.ProductStockDTO;
-import com.example.demo.dto.ProductSummaryDTO;
 import com.example.demo.entities.Product;
 import com.example.demo.entities.ProductStock;
 import com.example.demo.services.ProductService;
@@ -41,21 +39,11 @@ public class ProductController {
 //    	return prodserv.addProduct(product);
 //    }
 	
-	@PostMapping("/add")
-	public Product addNewProduct(@RequestBody ProductDTO productdto) {
-	    return prodserv.addNewProduct(productdto);
+	@PostMapping
+	public boolean addProduct(@RequestBody ProductDTO productdto) {
+	    return prodserv.addProduct(productdto);
 	}
 	
-	@PostMapping("/{pid}/stock")
-	public ResponseEntity<Boolean> addStock(@PathVariable Integer pid,@RequestBody ProductStockDTO dto) {
-	    dto.setPid(pid);
-	    return ResponseEntity.ok(prodserv.addStock(dto));
-	}
-	
-	@GetMapping("/{pid}/stock")
-	public ResponseEntity<List<ProductStock>> getStockByProduct(@PathVariable Integer pid) {
-	    return ResponseEntity.ok(prodserv.getStockByProduct(pid));
-	}
 	
 	
 	

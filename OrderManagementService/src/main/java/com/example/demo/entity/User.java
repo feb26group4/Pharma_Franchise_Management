@@ -5,195 +5,102 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< HEAD
-=======
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
->>>>>>> main
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class User {
 	
-<<<<<<< HEAD
-	 @Id
-=======
-	    @Id
->>>>>>> main
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "uid")
-	    private Integer uid;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid")
+    private Integer uid;
 
-<<<<<<< HEAD
-	    @Column(name = "uname")
-	    private String uname;
+    @Column(name = "uname")
+    private String uname;
 
-	    @Column(name = "password")
-	    private String password;
+    @Column(name = "password")
+    private String password;
 
-	    @Column(name = "fname")
-	    private String fname;
+    @Column(name = "fname")
+    private String fname;
 
-	    @Column(name = "lname")
-	    private String lname;
+    @Column(name = "lname")
+    private String lname;
 
-	    @Column(name = "role_id")
-	    private Integer roleId;
-=======
+    @Column(name = "role_id")
+    private Integer roleId;
 
-	    @Column(name = "uname")
-	    private String uname;
+    @Column(name = "email")
+    private String email;
 
+    @Column(name = "contact")
+    private String contact;
 
-	    @Column(name = "password")
-	    private String password;
+	public Integer getUid() {
+		return uid;
+	}
 
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-	    @Column(name = "fname")
-	    private String fname;
+	public String getUname() {
+		return uname;
+	}
 
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
 
-	    @Column(name = "lname")
-	    private String lname;
+	public String getPassword() {
+		return password;
+	}
 
->>>>>>> main
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-	    @Column(name = "email")
-	    private String email;
+	public String getFname() {
+		return fname;
+	}
 
-<<<<<<< HEAD
-	    @Column(name = "contact")
-	    private String contact;
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 
-		public Integer getUid() {
-			return uid;
-		}
+	public String getLname() {
+		return lname;
+	}
 
-		public void setUid(Integer uid) {
-			this.uid = uid;
-		}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
 
-		public String getUname() {
-			return uname;
-		}
+	public Integer getRoleId() {
+		return roleId;
+	}
 
-		public void setUname(String uname) {
-			this.uname = uname;
-		}
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
 
-		public String getPassword() {
-			return password;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		public String getFname() {
-			return fname;
-		}
+	public String getContact() {
+		return contact;
+	}
 
-		public void setFname(String fname) {
-			this.fname = fname;
-		}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+    
+    
 
-		public String getLname() {
-			return lname;
-		}
-
-		public void setLname(String lname) {
-			this.lname = lname;
-		}
-
-		public Integer getRoleId() {
-			return roleId;
-		}
-
-		public void setRoleId(Integer roleId) {
-			this.roleId = roleId;
-		}
-
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
-		public String getContact() {
-			return contact;
-		}
-
-		public void setContact(String contact) {
-			this.contact = contact;
-		}
-
-	    
-=======
-
-	    @Column(name = "contact")
-	    private String contact;
-	    
-
-	    public Integer getUid() {
-	        return uid;
-	    }
-
-	    public void setUid(Integer uid) {
-	        this.uid = uid;
-	    }
-
-	    public String getUname() {
-	        return uname;
-	    }
-
-	    public void setUname(String uname) {
-	        this.uname = uname;
-	    }
-
-	    public String getPassword() {
-	        return password;
-	    }
-
-	    public void setPassword(String password) {
-	        this.password = password;
-	    }
-
-	    public String getFname() {
-	        return fname;
-	    }
-
-	    public void setFname(String fname) {
-	        this.fname = fname;
-	    }
-
-	    public String getLname() {
-	        return lname;
-	    }
-
-	    public void setLname(String lname) {
-	        this.lname = lname;
-	    }
-
-	    public String getEmail() {
-	        return email;
-	    }
-
-	    public void setEmail(String email) {
-	        this.email = email;
-	    }
-
-	    public String getContact() {
-	        return contact;
-	    }
-
-	    public void setContact(String contact) {
-	        this.contact = contact;
-	    }
-
-
-
->>>>>>> main
 }
