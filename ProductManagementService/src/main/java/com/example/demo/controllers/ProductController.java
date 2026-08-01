@@ -26,14 +26,14 @@ public class ProductController {
 	@Autowired
 	ProductService prodserv;
 	
-	@GetMapping
-	public ResponseEntity<List<ProductSummaryDTO>> getProducts(){
+	// @GetMapping
+	// public ResponseEntity<List<ProductSummaryDTO>> getProducts(){
 
-	    return ResponseEntity.ok(
-	            prodserv.getProductSummary()
-	    );
+	//     return ResponseEntity.ok(
+	//             prodserv.getProductSummary()
+	//     );
 
-	}
+	// }
 	
 //	@PostMapping
 //	public Product addProduct(@RequestBody Product product)
