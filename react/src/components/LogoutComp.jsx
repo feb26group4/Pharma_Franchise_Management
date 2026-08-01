@@ -1,17 +1,26 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../redux/authSlice";
 
-export default function LogoutComp(){
-    //dispatch action to redux
-    //navigate to/
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+export default function LogoutComp() {
 
-    useEffect(()=>{
-        dispatch(logout())
-        navigate("/")
-    },[]);
-    
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+
+        // Remove JWT and user details
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+
+        // Clear Redux state
+        dispatch(logout());
+
+        // Redirect to Home
+        navigate("/", { replace: true });
+
+    }, [dispatch, navigate]);
+
+    return null;
 }

@@ -1,39 +1,14 @@
-import { NavLink, Outlet } from "react-router-dom"
+import DashboardLayout from "./DashboardLayout";
 
-export default function FranchiseDashboard(){
-    return(
-        <>
-            <h2>Admin Panel</h2>
-         <div className="d-flex">         
+const navItems = [
+    { to: "manage", label: "Manage profile" },
+    { to: "placeorder", label: "Place stock order" },
+    { to: "role3", label: "Track order" },
+    { to: "role4", label: "View invoices/payments" },
+    { to: "role5", label: "role5" },
+    { to: "role6", label: "role6" },
+];
 
-           <ul className="nav nav-pills flex-column p-3 border-end">
-            <li className="nav-item">
-            <NavLink to="manage">Manage profile</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="placeorder">place stock order</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="role3">track order</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="role4">view invoices/payments</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="role5">role5</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="role6">role6</NavLink>
-            </li>
-            <li className="nav-item">   
-            <NavLink to="logout">Logout</NavLink>
-            </li>
-          </ul>
-        
-        <div className="p-3 flex-grow-1">
-            <Outlet />
-        </div>
-        </div>
-        </>
-    )
+export default function FranchiseDashboard() {
+    return <DashboardLayout title="Franchise Panel" navItems={navItems} />;
 }
