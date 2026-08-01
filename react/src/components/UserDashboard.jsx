@@ -1,28 +1,10 @@
-import { NavLink, Outlet } from "react-router-dom"
+import DashboardLayout from "./DashboardLayout";
 
-export default function UserDashboard(){
+const navItems = [
+    { to: "search", label: "Search" },
+    { to: "booking", label: "Booking" },
+];
 
-    return(
-        <>
-            <h2>User Panel</h2>
-         <div className="d-flex">         
-
-           <ul className="nav nav-pills flex-column p-3 border-end">
-            <li className="nav-item">
-            <NavLink to="search">Search</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink to="booking">Booking</NavLink>
-            </li>
-            <li className="nav-item">   
-            <NavLink to="logout">Logout</NavLink>
-            </li>
-          </ul>
-        
-        <div className="p-3 flex-grow-1">
-            <Outlet />
-        </div>
-        </div>
-        </>
-    )
+export default function UserDashboard() {
+    return <DashboardLayout title="User Panel" navItems={navItems} />;
 }

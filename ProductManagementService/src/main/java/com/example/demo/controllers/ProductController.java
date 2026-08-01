@@ -33,15 +33,10 @@ public class ProductController {
 	            prodserv.getProductSummary()
 	    );
 
-	}
+	}	
 	
-//	@PostMapping
-//	public Product addProduct(@RequestBody Product product)
-//    {
-//    	return prodserv.addProduct(product);
-//    }
-	
-	@PostMapping("/add")
+
+	@PostMapping()
 	public Product addNewProduct(@RequestBody ProductDTO productdto) {
 	    return prodserv.addNewProduct(productdto);
 	}

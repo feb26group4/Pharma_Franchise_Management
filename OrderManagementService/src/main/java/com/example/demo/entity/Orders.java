@@ -7,25 +7,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
-
 
 @Entity
-@Data
 @Table(name = "orders")
 public class Orders {
 
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "oid")
     private Integer oid;
 
-    @Column(name = "uid")
-    private Integer uid;
+    @ManyToOne
+    @JoinColumn(name = "uid")
+    private User user;
 
-    @Column(name = "fid")
-    private Integer fid;
+    @ManyToOne
+    @JoinColumn(name = "fid")
+    private Franchise franchise;
 
     @Column(name = "amount")
     private BigDecimal amount;
@@ -41,20 +43,20 @@ public class Orders {
 		this.oid = oid;
 	}
 
-	public Integer getUid() {
-		return uid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Integer getFid() {
-		return fid;
+	public Franchise getFranchise() {
+		return franchise;
 	}
 
-	public void setFid(Integer fid) {
-		this.fid = fid;
+	public void setFranchise(Franchise franchise) {
+		this.franchise = franchise;
 	}
 
 	public BigDecimal getAmount() {
@@ -72,7 +74,6 @@ public class Orders {
 	public void setPaymentMode(String paymentMode) {
 		this.paymentMode = paymentMode;
 	}
-    
     
     
     
