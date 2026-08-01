@@ -33,9 +33,8 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(Integer pid, String pname, String type, String description, String packaging_unit) {
+	public Product(String pname, String type, String description, String packaging_unit) {
 		super();
-		this.pid = pid;
 		this.pname = pname;
 		this.type = type;
 		this.description = description;
